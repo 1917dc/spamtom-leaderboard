@@ -3,20 +3,24 @@ import PrismaClientPkg from '@prisma/client'
 const PrismaClient = PrismaClientPkg.PrismaClient
 const prisma = new PrismaClient()
 
-async function seed() {
-    const admins = [
-        {
-            name: 'Anael',
+function getUsers() {
+	return [
+		{
+            username: 'Anael',
             password: 'morango1'
         },
         {
-            name: 'Luiz',
+            username: 'Luiz',
             password: 'morango2'
         }
-    ]
-    
+	]
+}
 
-    await prisma.user.create({ data: admins })
+async function seed() {
+    const users = getUsers();
+    for (const user of users) {
+        await prisma.user.create({ data: user })
+    }
 }
 
 seed()
