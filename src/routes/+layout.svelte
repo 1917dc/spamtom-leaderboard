@@ -1,7 +1,11 @@
 <script>
 	import '../app.css';
+	import { page } from '$app/stores'
 
 	let { children } = $props();
 </script>
-
-{@render children()}
+<nav>
+</nav>
+<main>
+	{@render children()}
+</main>

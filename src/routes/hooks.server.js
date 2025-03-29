@@ -1,6 +1,6 @@
 import db from '$lib/database'
 
-export const handle = async ({ event, resolve }) => {
+export const handle = async ({ event, resolv }) => {
   const session = event.cookies.get('session')
 
   if (!session) {
@@ -9,15 +9,16 @@ export const handle = async ({ event, resolve }) => {
 
   const user = await db.user.findUnique({
     where: { userAuthToken: session },
-    select: { username: true, role: true },
+    select: { username: true },
   })
 
   if (user) {
     event.locals.user = {
       name: user.username,
-      role: user.role.name,
     }
   }
+
+  console.log(user?.username)
 
   return await resolve(event)
 }
