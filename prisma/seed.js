@@ -7,11 +7,13 @@ function getUsers() {
 	return [
 		{
             username: 'Anael',
-            password: 'morango1'
+            password: 'morango1',
+            userAuthToken: crypto.randomUUID()
         },
         {
             username: 'Luiz',
-            password: 'morango2'
+            password: 'morango2',
+            userAuthToken: crypto.randomUUID()
         }
 	]
 }
