@@ -35,5 +35,9 @@
 	},
 	"dependencies": {
 		"@prisma/client": "^6.5.0"
+	},
+
+	"prisma": {
+  		"seed": "node prisma/seed.js"
 	}
 }
