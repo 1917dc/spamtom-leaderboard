@@ -1,6 +1,6 @@
 import db from '$lib/database'
 
-export const handle = async ({ event, resolv }) => {
+export const handle = async ({ event, resolve }) => {
   const session = event.cookies.get('session')
 
   if (!session) {
@@ -17,8 +17,6 @@ export const handle = async ({ event, resolv }) => {
       name: user.username,
     }
   }
-
-  console.log(user?.username)
 
   return await resolve(event)
 }

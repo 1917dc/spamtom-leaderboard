@@ -46,6 +46,6 @@ export const actions = {
         })
 
         // redirect the user
-        redirect(302, '/')
+        redirect(302, '/home')
     }
 };
